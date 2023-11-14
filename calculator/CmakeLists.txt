@@ -1,0 +1,29 @@
+#Католог
+cmake_minimum_required(VERSION 2.8)
+
+
+project(calculator)
+
+
+file(GLOB CPP "*.CPP")
+
+
+set(lib ${PROJECT_NAME}_lib)
+include_directories(${CMAKE_SOURCE_DIR}/lib)
+
+
+set(test ${PROJECT_NAME}_test)
+include_directories(${CMAKE_SOURCE_DIR}/test)
+
+include_directories(${CMAKE_SOURCE_DIR}/graphics)
+
+
+add_executable(${PROJECT_NAME} ${CPP})
+
+
+
+add_subdirectory(lib)	
+add_subdirectory(test)
+add_subdirectory(graphics)
+
+target_link_libraries(${PROJECT_NAME} ${lib})	

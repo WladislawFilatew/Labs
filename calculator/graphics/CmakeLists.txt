@@ -1,0 +1,37 @@
+#Визуальное приложение
+cmake_minimum_required(VERSION 2.8)
+
+set(name WinMain)
+
+file(GLOB CPP "*.CPP")
+file (GLOB H "*.h")
+configure_file(${CMAKE_SOURCE_DIR}/calculator/graphics/Times.ttf ${CMAKE_BINARY_DIR}/calculator/graphics/Times.ttf COPYONLY)
+
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+
+# Указываем путь к библиотеке SFML
+set(SFML_DIR "..\\..\\SFML-2.6.1\\lib\\cmake\\SFML")
+
+set(SFML_STATIC_LIBRARIES TRUE)
+
+# Находим компоненты библиотеки SFML
+find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
+
+
+
+add_executable(${name} WIN32 ${CPP} ${H})
+
+# Линкуем библиотеки SFML
+target_link_libraries(${name} ${lib}  sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
+
+
+
+
+
+
+
+
+
+ 
+
