@@ -1,0 +1,42 @@
+#Католог
+cmake_minimum_required(VERSION 2.8)
+
+
+project(Processor)
+
+
+file(GLOB CPP "*.CPP")
+file(GLOB H "*.H")
+configure_file(${CMAKE_SOURCE_DIR}/Processor/Elements/Times.ttf ${CMAKE_BINARY_DIR}/Processor/Times.ttf COPYONLY)
+
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+
+# Указываем путь к библиотеке SFML
+set(SFML_DIR "..\\SFML-2.6.1\\lib\\cmake\\SFML")
+
+set(SFML_STATIC_LIBRARIES TRUE)
+
+# Находим компоненты библиотеки SFML
+find_package(SFML 2.5.1 COMPONENTS graphics audio REQUIRED)
+
+
+
+
+set(Elements Elements)
+include_directories(${CMAKE_SOURCE_DIR}/Elements)
+
+
+set(Blocks Blocks)
+include_directories(${CMAKE_SOURCE_DIR}/Blocks)
+
+
+
+add_executable(${PROJECT_NAME} WIN32 ${CPP} ${H})
+
+
+
+add_subdirectory(Elements)	
+add_subdirectory(Blocks)
+
+target_link_libraries(${PROJECT_NAME} ${Elements} ${Blocks} sfml-system sfml-window sfml-graphics sfml-network sfml-audio)	

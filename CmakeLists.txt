@@ -19,3 +19,6 @@ add_subdirectory(calculator)
 
 #очередь
 add_subdirectory(queue)
+
+#Процессор
+add_subdirectory(Processor)
