@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
 #include "MainForm.h"
@@ -18,8 +18,9 @@ int WinMain() {
 
 int main() {
 
-	Controller a( 9, 50, 1, 8, 1, 6);
-	for (int i = 0; i < 20; i++) {
+	Controller a( 9, 50, 1, 9, 1, 10);
+	int i = 0;
+	for (; i < 1000; i++) {
 		a.Tact();
 		system("cls");
 		cout << "Tact:" << i + 1 << endl;
@@ -40,10 +41,10 @@ int main() {
 			it++;
 		}
 
-		chrono::milliseconds timespan(1000);
+		chrono::milliseconds timespan(50);
 		this_thread::sleep_for(timespan);
 	}
 
-
+	cout << endl << "________________________" << endl <<  (double)a.GetKol() / i;
 
 }

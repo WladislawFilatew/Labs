@@ -16,10 +16,6 @@ button::button(int Windht, int Height)
 }
 
 
-
-
-
-
 void button::SetColor(Color color)
 {
 	rectagle.setFillColor(color);

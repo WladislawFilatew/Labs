@@ -5,9 +5,6 @@
 using namespace sf;
 using namespace std;
 
-
-
-
 class ProcV {
 	RectangleShape rectagle;
 	Font font;
@@ -28,7 +25,6 @@ public:
 		idProc.setFillColor(Color(255 - color.r, 255 - color.g, 255 - color.b));
 	}
 };
-
 
 
 class PanelProc {

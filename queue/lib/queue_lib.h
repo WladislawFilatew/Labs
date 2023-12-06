@@ -15,8 +15,6 @@ public:
 	void pop();
 	~MyQueue();
 
-	
-
 private:
 	template<class T>
 	class Note {
@@ -55,7 +53,6 @@ public:
 
 	Note<T>* begin() { return head; }
 	Note<T>* end() { return (tail==nullptr)?tail:tail->prev; }
-
 
 };
 

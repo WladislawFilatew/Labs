@@ -21,8 +21,6 @@ bool Task::Tact() {
 
 int Task::kolTask = 0;
 
-
-
 //Proc
 Proc::Proc(int kol) {
 	setKolProc(kol);
@@ -52,6 +50,8 @@ bool Proc::SetTask(Task task) {
 void Proc::Tact() {
 	if (!id.empty()) {
 		for (auto& a : Cores) {
+			if (!a.free())
+				kol++;
 			if (!a.free() && find(id.begin(), id.end(), a.IdTask()) != id.end()) {
 				a.StopTask();
 				kolFree++;
@@ -101,8 +101,6 @@ void Proc::Core::StopTask()
 	task = nullptr;
 	flag = true;
 }
-
-
 
 //Controller
 Controller::Controller(int kolProc, int Shans, int minKolProc, int maxKolProc, int minKolTact, int maxKolTact)

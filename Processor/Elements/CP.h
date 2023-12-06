@@ -7,8 +7,6 @@
 #include "../queue/lib/queue_lib.h"
 using namespace std;
 
-
-
 class Task {
 private:
 	static int kolTask;
@@ -36,6 +34,8 @@ public:
 	bool SetTask(Task task);
 	void Tact();
 
+	int kol = 0;
+
 protected:
 	class Core {
 	private:
@@ -56,6 +56,7 @@ protected:
 		int GetTact() { return (task == nullptr) ? 0 : task->GetKolTract();}
 		int* GetColor() { return (task == nullptr) ? nullptr : task->color; }
 		Task& GetTask() { return *task; }
+
 	};
 
 public:
@@ -67,8 +68,6 @@ private:
 	int kolProz, kolFree;
 	vector<int> id;
 };
-
-
 
 
 class Controller : public Proc {
@@ -129,5 +128,5 @@ public:
 		}
 		return TablCores;
 	}
-
+	int GetKol() { return proc.kol; }
 };
